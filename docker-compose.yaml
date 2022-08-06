@@ -13,7 +13,7 @@ services:
     container_name: remote-host
     image: remote-host
     build:
-      context: jenkinsContainerdanBaglanilanContainer
+      context: sshContainer
     volumes:
       - "$PWD/aws-s3.sh:/tmp/script.sh"
     networks:
