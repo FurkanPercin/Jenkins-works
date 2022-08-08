@@ -1,0 +1,39 @@
+job('DSL-Job-Example'){
+    description('A job to create a job')
+
+    parameters{
+       stringParam('Motivation', defaultValue = 'coffee', description = 'Coffee is the best motivator')
+       booleanParam('FLAG', true)
+       choiceParam('OPTION', ['option 1(default)', 'option 2', 'option 3'])
+    }
+    scm {
+        git('https://github.com/jenkins-docs/simple-java-maven-app', 'master')
+    }
+
+    triggers {
+        cron('H 5 * * 7')
+    }
+
+    steps {
+        shell("echo 'Hello World'")
+        shell("echo 'Hello World2'")
+    }
+
+    publishers {
+        mailer('me@example.com', true, true)
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
